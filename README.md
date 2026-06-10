@@ -2,6 +2,33 @@
 
 Framework-neutral skill for reproducing quantitative finance papers.
 
+## 中文说明
+
+`paper-replication` 是一个面向量化金融论文复现的 Codex/Agent 技能包。它不绑定特定智能体框架，只要目标环境可以读取本目录并运行本地 Python 脚本，就可以完成论文检索、PDF 提取、公式与策略逻辑整理、研究型回测、图表生成和结果打包。
+
+适合用于：
+
+- 复现 arXiv 或本地 PDF 中的量化金融论文。
+- 将论文中的信号、组合构建、成本假设和评价指标转成可运行的 Pandas 回测。
+- 使用 akshare、yfinance 或用户提供的 CSV 数据进行实验。
+- 输出复现笔记、指标 JSON、净值/权重 CSV 和图表文件，便于后续审阅或报告撰写。
+
+基本流程：
+
+1. 用 `scripts/search_arxiv.py` 搜索或下载论文，也可以直接提供本地 PDF。
+2. 用 `scripts/extract_paper.py` 提取论文文本、公式、数据区间、资产范围和评价指标。
+3. 明确数据源、信号计算、组合构建、成本、换仓和指标口径。
+4. 用 `scripts/reproduce_paper.py` 或 `scripts/run_research.py --pipeline` 运行复现实验。
+5. 检查数据是否为空、最新日期是否合理、信号是否做了滞后处理，并解释与论文结果的差异。
+
+所有生成结果应写入：
+
+```text
+/home/coder/project/replication/paper-replication/{paper_id}/
+```
+
+不要把复现实验输出写回 skill 目录本身。
+
 The skill can live in any project or agent workspace. A third-party agent only needs to:
 
 1. Read this directory.
