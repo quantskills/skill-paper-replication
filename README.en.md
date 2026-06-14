@@ -32,6 +32,7 @@ A third-party agent only needs to:
 - Turn the paper's signals, portfolio construction, cost assumptions, and evaluation metrics into a runnable Pandas backtest.
 - Experiment with akshare, yfinance, or user-provided CSV data.
 - Output replication notes, metric JSON, equity/weight CSVs, and chart files for later review or report writing.
+- Render chart-image text in English ASCII only so PNG/SVG output stays portable across systems without Chinese fonts.
 
 ## ⚡ Replication Pipeline
 
