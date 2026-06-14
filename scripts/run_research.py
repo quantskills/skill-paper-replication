@@ -136,7 +136,14 @@ def organize_outputs(strategy, output_dir):
 
 def full_pipeline(args):
     """Run the complete research-to-trade pipeline."""
-    paper_id = args.paper_id or args.paper.replace(" ", "_")[:30]
+    if args.paper_id:
+        paper_id = args.paper_id
+    elif args.paper:
+        paper_id = args.paper.replace(" ", "_")[:30]
+    elif args.pdf:
+        paper_id = os.path.splitext(os.path.basename(args.pdf))[0][:30]
+    else:
+        paper_id = "default"
     output_dir = ensure_dirs(paper_id)
 
     print("=" * 60)

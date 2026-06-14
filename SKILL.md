@@ -92,6 +92,13 @@ Generated paper artifacts must go under:
 
 Never write generated paper artifacts back into the skill directory.
 
+## Chart Image Text Rules
+
+- Text rendered inside generated chart image files must be English ASCII only. This includes PNG/SVG titles, subtitles, axis labels, legends, colorbar labels, annotation text, heatmap labels, in-image table headers, and watermarks.
+- Keep any Chinese explanations outside the image in Markdown/HTML notes. The chart pixels themselves must stay font-compatible across environments.
+- When using Matplotlib, Seaborn, Plotly static export, or another image renderer, use broadly available Latin fonts such as `DejaVu Sans` or `Arial`. Do not set CJK chart fonts such as `SimHei`, `SimSun`, `Microsoft YaHei`, `Noto Sans CJK`, or `Source Han Sans`.
+- If the source paper or factor name is Chinese, draw an ASCII-safe display label in the chart and keep the original Chinese name in the surrounding text.
+
 ## Quick Start
 
 ```bash
