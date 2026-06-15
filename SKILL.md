@@ -1,6 +1,8 @@
 ---
 name: paper-replication
-description: Systematically reproduce quantitative finance papers with framework-neutral scripts, third-party market data, standalone research backtests, and packaged outputs.
+description: Use when systematically reproducing quantitative finance papers with
+  framework-neutral scripts, third-party market data, standalone research backtests,
+  charts, metrics, and packaged outputs.
 version: 2.0.2
 author: PandaAI
 license: GPL-3.0-only
@@ -13,8 +15,41 @@ metadata:
   collection: paper-replication
   creator: abgyjaguo
   maintainer: abgyjaguo
-  tags: [quant, research, paper, replication, backtest]
-  compatible_agents: [codex, hermes, claude-code, aider, cursor, generic-cli-agent]
+  tags:
+  - quant
+  - research
+  - paper
+  - replication
+  - backtest
+  compatible_agents:
+  - codex
+  - hermes
+  - claude-code
+  - aider
+  - cursor
+  - generic-cli-agent
+quantSkills:
+  project_type: skill
+  category: replication
+  tags:
+  - paper-replication
+  - quant-finance
+  - backtest
+  - research
+  - workflow
+  platforms:
+  - claude-code
+  - codex
+  - hermes
+  - openclaw
+  - cursor
+  status: stable
+  validation_level: runnable
+  maintainer_type: official
+  summary_zh: 把一篇量化金融论文（arXiv 或本地 PDF），变成一套可运行、可审计的复现实验：检索 → 提取 → 回测 → 图表 → 指标对照，全程框架无关。
+  summary_en: Framework-neutral quantitative paper replication skill for research
+    scripts, backtests, charts, and auditable outputs.
+  license: GPL-3.0
 ---
 
 # Paper Replication
@@ -59,6 +94,13 @@ Generated paper artifacts must go under:
 ```
 
 Never write generated paper artifacts back into the skill directory.
+
+## Chart Image Text Rules
+
+- Text rendered inside generated chart image files must be English ASCII only. This includes PNG/SVG titles, subtitles, axis labels, legends, colorbar labels, annotation text, heatmap labels, in-image table headers, and watermarks.
+- Keep any Chinese explanations outside the image in Markdown/HTML notes. The chart pixels themselves must stay font-compatible across environments.
+- When using Matplotlib, Seaborn, Plotly static export, or another image renderer, use broadly available Latin fonts such as `DejaVu Sans` or `Arial`. Do not set CJK chart fonts such as `SimHei`, `SimSun`, `Microsoft YaHei`, `Noto Sans CJK`, or `Source Han Sans`.
+- If the source paper or factor name is Chinese, draw an ASCII-safe display label in the chart and keep the original Chinese name in the surrounding text.
 
 ## Quick Start
 

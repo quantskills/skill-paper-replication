@@ -379,11 +379,15 @@ def run_pipeline(symbols, strategy="tsmom", start="2020-01-01", end="2024-12-31"
     try:
         import matplotlib
         matplotlib.use("Agg")
+        matplotlib.rcParams.update({
+            "font.family": "DejaVu Sans",
+            "axes.unicode_minus": False,
+        })
         import matplotlib.pyplot as plt
 
         fig, axes = plt.subplots(2, 1, figsize=(12, 8))
         axes[0].plot(equity.index, equity.values, linewidth=1)
-        axes[0].set_title(f"{strat['name']} — Equity Curve")
+        axes[0].set_title(f"{strat['name']} - Equity Curve")
         axes[0].set_ylabel("Equity")
         axes[0].grid(True, alpha=0.3)
 
