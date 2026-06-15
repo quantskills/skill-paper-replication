@@ -11,6 +11,8 @@ metadata:
   repository_url: https://github.com/quantskills/skill-paper-replication
   project_type: skill
   collection: paper-replication
+  creator: abgyjaguo
+  maintainer: abgyjaguo
   tags: [quant, research, paper, replication, backtest]
   compatible_agents: [codex, hermes, claude-code, aider, cursor, generic-cli-agent]
 ---
